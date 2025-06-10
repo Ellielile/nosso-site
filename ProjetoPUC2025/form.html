@@ -5,56 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevQuiz - Quiz</title>
     <link rel="stylesheet" href="css/style.css">
-    </head>
+</head>
 <body>
-
-<header>
-    <h1>DevQuiz</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="form.html">Quiz</a></li>
-            <li><a href="about.html">Sobre</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="container">
-    <h2>Quiz Básico de HTML, CSS e JavaScript</h2>
-    <form id="quizForm" action="formAction.html" method="get"> 
-
-        <h3>1. Qual tag usamos para criar um parágrafo?</h3>
-        <label><input type="radio" name="q1" value="h1" required> &lt;h1&gt;</label><br>
-        <label><input type="radio" name="q1" value="p"> &lt;p&gt;</label><br> <label><input type="radio" name="q1" value="div"> &lt;div&gt;</label><br>
-
-        <h3>2. Qual tag cria um link?</h3>
-        <label><input type="radio" name="q2" value="a" required> &lt;a&gt;</label><br> <label><input type="radio" name="q2" value="link"> &lt;link&gt;</label><br>
-        <label><input type="radio" name="q2" value="href"> &lt;href&gt;</label><br>
-
-        <h3>3. Qual propriedade do CSS muda a cor do texto?</h3>
-        <label><input type="radio" name="q3" value="color" required> color</label><br> <label><input type="radio" name="q3" value="background-color"> background-color</label><br>
-        <label><input type="radio" name="q3" value="font-size"> font-size</label><br>
-
-        <h3>4. Com qual símbolo chamamos uma classe no CSS?</h3>
-        <label><input type="radio" name="q4" value="#" required> #</label><br>
-        <label><input type="radio" name="q4" value="."> .</label><br> <label><input type="radio" name="q4" value="/"> /</label><br>
-
-        <h3>5. Qual comando usamos para exibir algo no console?</h3>
-        <label><input type="radio" name="q5" value="console.log()" required> console.log()</label><br> <label><input type="radio" name="q5" value="alert()"> alert()</label><br>
-        <label><input type="radio" name="q5" value="print()"> print()</label><br>
-
-        <h3>6. JavaScript serve para:</h3>
-        <label><input type="radio" name="q6" value="estilo" required> Estilizar o site</label><br>
-        <label><input type="radio" name="q6" value="estrutura"> Estruturar o site</label><br>
-        <label><input type="radio" name="q6" value="interatividade"> Criar interatividade</label><br> <br>
-        <input type="submit" value="Enviar Respostas">
-    </form>
-</main>
-
-<footer>
-    <p>&copy; 2025 DevQuiz - Todos os direitos reservados.</p>
-</footer>
-
-<script src="js/main.js"></script> 
+    <canvas id="particleCanvas"></canvas>
+    <header>
+        <h1>DevQuiz</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="form.html">Quiz</a></li>
+                <li><a href="about.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h2>Quiz Básico de HTML, CSS e JavaScript</h2>
+        <form id="quizForm" action="formAction.html" method="get">
+            <div class="question-section active" data-question="1">
+                <h3>1. Qual tag usamos para criar um parágrafo?</h3>
+                <label><input type="radio" name="q1" value="h1" required> &lt;h1&gt;</label><br>
+                <label><input type="radio" name="q1" value="p"> &lt;p&gt;</label><br>
+                <label><input type="radio" name="q1" value="div"> &lt;div&gt;</label><br>
+            </div>
+            <div class="question-section" data-question="2">
+                <h3>2. Qual tag cria um link?</h3>
+                <label><input type="radio" name="q2" value="a" required> &lt;a&gt;</label><br>
+                <label><input type="radio" name="q2" value="link"> &lt;link&gt;</label><br>
+                <label><input type="radio" name="q2" value="href"> &lt;href&gt;</label><br>
+            </div>
+            <div class="question-section" data-question="3">
+                <h3>3. Qual propriedade do CSS muda a cor do texto?</h3>
+                <label><input type="radio" name="q3" value="color" required> color</label><br>
+                <label><input type="radio" name="q3" value="background-color"> background-color</label><br>
+                <label><input type="radio" name="q3" value="font-size"> font-size</label><br>
+            </div>
+            <div class="question-section" data-question="4">
+                <h3>4. Com qual símbolo chamamos uma classe no CSS?</h3>
+                <label><input type="radio" name="q4" value="#" required> #</label><br>
+                <label><input type="radio" name="q4" value="."> .</label><br>
+                <label><input type="radio" name="q4" value="/"> /</label><br>
+            </div>
+            <div class="question-section" data-question="5">
+                <h3>5. Qual comando usamos para exibir algo no console?</h3>
+                <label><input type="radio" name="q5" value="console.log()" required> console.log()</label><br>
+                <label><input type="radio" name="q5" value="alert()"> alert()</label><br>
+                <label><input type="radio" name="q5" value="print()"> print()</label><br>
+            </div>
+            <div class="question-section" data-question="6">
+                <h3>6. JavaScript serve para:</h3>
+                <label><input type="radio" name="q6" value="estilo" required> Estilizar o site</label><br>
+                <label><input type="radio" name="q6" value="estrutura"> Estruturar o site</label><br>
+                <label><input type="radio" name="q6" value="interatividade"> Criar interatividade</label><br>
+            </div>
+            <div class="question-section" data-question="7">
+                <h3>7. Qual tag usamos para criar uma imagem?</h3>
+                <label><input type="radio" name="q7" value="img" required> &lt;img&gt;</label><br>
+                <label><input type="radio" name="q7" value="image"> &lt;image&gt;</label><br>
+                <label><input type="radio" name="q7" value="picture"> &lt;picture&gt;</label><br>
+            </div>
+            <div class="question-section" data-question="8">
+                <h3>8. Qual tag usamos para criar um video?</h3>
+                <label><input type="radio" name="q8" value="video" required> &lt;video&gt;</label><br>
+                <label><input type="radio" name="q8" value="iframe"> &lt;iframe&gt;</label><br>
+                <label><input type="radio" name="q8" value="src"> &lt;src&gt;</label><br>
+            </div>
+            <div class="question-section" data-question="9">
+                <h3>9. Qual tag usamos para criar uma tabela?</h3>
+                <label><input type="radio" name="q9" value="table" required> &lt;table&gt;</label><br>
+                <label><input type="radio" name="q9" value="tr"> &lt;tr&gt;</label><br>
+                <label><input type="radio" name="q9" value="td"> &lt;td&gt;</label><br>
+            </div>
+            <div class="question-section" data-question="10">
+                <h3>10. Qual tag usamos para criar uma lista?</h3>
+                <label><input type="radio" name="q10" value="ul" required> &lt;ul&gt;</label><br>
+                <label><input type="radio" name="q10" value="ol"> &lt;ol&gt;</label><br>
+                <label><input type="radio" name="q10" value="li"> &lt;li&gt;</label><br>
+            </div>
+            <div class="quiz-navigation">
+                <button type="button" id="prevQuestion" class="botao-nav">Voltar</button>
+                <button type="button" id="nextQuestion" class="botao-nav">Próxima</button>
+                <input type="submit" value="Finalizar Quiz" id="submitQuiz" class="botao-comecar" style="display: none;">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 DevQuiz - Todos os direitos reservados.</p>
+    </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
